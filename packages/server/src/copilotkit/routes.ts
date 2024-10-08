@@ -13,13 +13,13 @@ configDotenv();
 
 
 const groq = new Groq({ apiKey: process.env.GROQ_API_KEY });
-const serviceAdapter = new GroqAdapter({ groq, model: "<model-name>" });
+const serviceAdapter = new GroqAdapter({ groq });
  
 
 export const copilot: RequestHandler = (req, res, next) => {
   const runtime = new CopilotRuntime();
   const handler = copilotRuntimeNodeHttpEndpoint({
-    endpoint: '/copilotkit',
+    endpoint: '/',
     runtime,
     serviceAdapter,
   });

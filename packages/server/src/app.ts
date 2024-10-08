@@ -193,7 +193,7 @@ export async function initApp(app: Express, config: MedplumServerConfig): Promis
   apiRouter.use('/oauth2/', oauthRouter);
   apiRouter.use('/scim/v2/', scimRouter);
   apiRouter.use('/storage/', storageRouter);
-  apiRouter.use('/copilot', copilot);
+  apiRouter.use('/copilot/', copilot);
 
   app.use('/api/', apiRouter);
   app.use('/', apiRouter);
