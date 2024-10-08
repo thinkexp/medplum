@@ -9,6 +9,11 @@ import {
 } from 'jose';
 import { MedplumServerConfig } from '../config';
 import { v4 as uuidv4 } from 'uuid';
+import {
+  configDotenv
+} from "dotenv"
+
+configDotenv();
 
 export interface MedplumBaseClaims extends JWTPayload {
   /**
@@ -66,7 +71,7 @@ const DEFAULT_REFRESH_LIFETIME = '2w';
 const jti: string = uuidv4().replace(/-/g, '');
 
 let issuer: string | undefined;
-let secretKey: string | undefined = "C2Nw1vaodwQyLoyzbuquhAwIX0bcfgW7218zGssjHGNwYbHHuy5MvFxTHJvR6wWh";
+let secretKey: string | undefined = process.env.SECRET_KEY
 
 export async function initKeys(config: MedplumServerConfig): Promise<void> {
   issuer = undefined;
