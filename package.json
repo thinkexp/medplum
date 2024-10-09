@@ -16,7 +16,8 @@
     "lint": "turbo run lint --filter=!@medplum/docs",
     "prettier": "prettier --write \"**/*.{ts,tsx,cts,mts,js,jsx,cjs,mjs,json}\"",
     "sort-package-json": "sort-package-json package.json \"packages/*/package.json\" \"examples/*/package.json\"",
-    "test": "turbo run test --filter=!@medplum/docs"
+    "test": "turbo run test --filter=!@medplum/docs",
+    "dev": "ts-node-dev --poll --respawn --transpile-only --require ./packages/server/src/otel/instrumentation.ts ./packages/server/src/index.ts"
   },
   "prettier": {
     "printWidth": 120,
